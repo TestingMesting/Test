@@ -1,0 +1,62 @@
+[
+  {
+    "name": "John Smith",
+    "totalSales": 250,
+    "salesPeriod": 6,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "David Prowless",
+    "totalSales": 270,
+    "salesPeriod": 9,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Gabriela Chukareva",
+    "totalSales": 290,
+    "salesPeriod": 10,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Ivan Pavlov",
+    "totalSales": 300,
+    "salesPeriod": 7,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Mihail Borisov",
+    "totalSales": 310,
+    "salesPeriod": 5,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Greta Velnerstein",
+    "totalSales": 330,
+    "salesPeriod": 4,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Martin Grahanov",
+    "totalSales": 400,
+    "salesPeriod": 1,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Semir Paunov",
+    "totalSales": 150,
+    "salesPeriod": 3,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Vankata Voivodov",
+    "totalSales": 100,
+    "salesPeriod": 10,
+    "experienceMultiplier": 0.5
+  },
+  {
+    "name": "Ivo Norbegov",
+    "totalSales": 420,
+    "salesPeriod": 9,
+    "experienceMultiplier": 0.5
+  }
+]
