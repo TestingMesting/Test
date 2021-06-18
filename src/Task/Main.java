@@ -8,12 +8,21 @@ import org.json.simple.parser.ParseException;
 import javax.swing.*;
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+
+        // да оправя stack-trace exception-ите
+        // как да направя текста в мейна по-къс без да правя методи, които правят 100 неща в тях?
+
 
         JSONParser jsonP = new JSONParser();
         List<Person> salesPeople = addSalesPeopleToList(jsonP);
+
+        if (salesPeople.size() == 0) {
+            return;
+        }
 
 
         long topPerformerThreshold = 0;
@@ -31,6 +40,7 @@ public class Main {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        //    throw new FileNotFoundException();
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -144,7 +154,8 @@ public class Main {
             }
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("The file doesn't exits.");
+            return salesPeople;
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -184,21 +195,14 @@ public class Main {
     }
 
 
-    public static <K, V extends Comparable<? super V>> Map<K, V> sortByScore(Map<K, V> unsortedMap) {
-        List<Map.Entry<K, V>> list = new LinkedList<Map.Entry<K, V>>(unsortedMap.entrySet());
+    public static Map<String, Double> sortByScore(final Map<String, Double> wordCounts) {
 
-        Collections.sort(list, new Comparator<Map.Entry<K, V>>() {
-            public int compare(Map.Entry<K, V> o1, Map.Entry<K, V> o2) {
-                return (o2.getValue()).compareTo(o1.getValue());
-            }
-        });
-
-        Map<K, V> result = new LinkedHashMap<K, V>();
-        for (Map.Entry<K, V> entry : list) {
-            result.put(entry.getKey(), entry.getValue());
-        }
-
-        return result;
+        return wordCounts.entrySet()
+                .stream()
+                .sorted((Map.Entry.<String, Double>comparingByValue().reversed()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
+
+
 }
 
